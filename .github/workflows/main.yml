@@ -1,0 +1,18 @@
+name: Ubuntu
+
+on:
+  workflow_dispatch
+  
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    timeout-minutes: 9999
+    steps:
+      - name: Setup Ubuntu by Github
+        run: git clone https://github.com/ramahsarker/freeroot.git
+      - name: Change directory
+        run: cd freeroot
+      - name: Run script
+        run: bash root.sh
+      - name: Connect via sshx
+        run: curl -sSf https://sshx.io/get | sh -s run
